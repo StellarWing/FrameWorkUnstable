@@ -23,6 +23,7 @@ final int OPTIONS = 4;
 float x, y, vx, vy;
 int score, lives, highscore;
 int fade = 0;
+float sliderX;
 
 void setup() {
   x = width/2;

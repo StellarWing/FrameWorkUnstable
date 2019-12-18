@@ -5,28 +5,45 @@ color green  = #CFF09E;
 color yellow = #F9D423;
 int   colour = 255;
 
+
+
 void options() {
   background(#AACCB1);
-  line (690, 50, 690, 200); //track
-  fill (0); //black, makes the small square stay black
+  sliderX = 200;
+
+  stroke(0);
+  fill(255);
+
+  //slider
+  line(600, 400, 200, 400); //track
+  ellipse(sliderX, 400, 30, 30); //knob
+
+  if (mousePressed) {
+    if (dist(sliderX, 400, mouseX, mouseY) < 15) { 
+      sliderX = mouseX; 
+
+//      if (sliderX < 600) {
+//        sliderX = 600;
+//      }
+//      if (sliderX > 400) {
+//        sliderX = 400;
+//      }
+    }
+  }
+
   fill (255); //color for intro button
   rect (300, 500, 200, 100); //back to intro
   fill (0); //text color
   text ("INTRO", 345, 560);
   noStroke();
-  if (mouseX > 100 && mouseX < 240 && mouseY > 100 && mouseY < 180) {
-    fill (yellow);
-    noFill();
-    stroke(yellow);
-  } else {
-    fill (grey);
-  }
+  fill (grey);
   rect (100, 100, 140, 80); //grey
   fill (orange);
   rect (325, 100, 140, 80); //red
-  fill (green); 
+  fill (green);
   rect (550, 100, 140, 80); //green
 }
+
 void optionsClicks() {
   if (mouseX > 100 && mouseX < 240 && mouseY > 100 && mouseY < 180) {
     colour = grey;
